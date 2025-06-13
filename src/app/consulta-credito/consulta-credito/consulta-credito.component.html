@@ -1,0 +1,54 @@
+<div class="container mt-4">
+    <h2>Consulta de Créditos</h2>
+
+    <div class="row">
+        <div class="col-auto">
+            <div class="input-group mb-3">
+                <input [(ngModel)]="filtroNumeroNfse" type="text" class="form-control"
+                    placeholder="Digite o Número Nfse">
+                <button (click)="buscarPorNumeroNfse()" class="btn btn-primary">Buscar</button>
+            </div>
+        </div>
+        <div class="col-auto">
+            <div class="input-group mb-3">
+                <input [(ngModel)]="filtroNumeroCredito" type="text" class="form-control"
+                    placeholder="Digite o Número Crédito">
+                <button (click)="buscarPorNumeroCredito()" class="btn btn-primary">Buscar</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-auto">
+                <table class="table table-bordered table-striped" *ngIf="listaCreditos.length > 0">
+                    <thead>
+                        <tr>
+                            <th>Número Credito</th>
+                            <th>Número Nfse</th>
+                            <th>Aliquota</th>
+                            <th>Base Calculo</th>
+                            <th>Data Constituicao</th>
+                            <th>Simples Nacional</th>
+                            <th>Tipo Credito</th>
+                            <th>Valor Deducao</th>
+                            <th>Valor Faturado</th>
+                            <th>Valor Issqn</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let credito of listaCreditos">
+                            <td>{{ credito.numeroCredito }}</td>
+                            <td>{{ credito.numeroNfse }}</td>
+                            <td>{{ credito.aliquota }}</td>
+                            <td>{{ credito.baseCalculo }}</td>
+                            <td>{{ credito.dataConstituicao }}</td>
+                            <td>{{ credito.simplesNacional }}</td>
+                            <td>{{ credito.tipoCredito }}</td>
+                            <td>{{ credito.valorDeducao }}</td>
+                            <td>{{ credito.valorFaturado }}</td>
+                            <td>{{ credito.valorIssqn }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
