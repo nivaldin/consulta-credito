@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Credito } from '../models/credito.model';
-import { ConsultaCreditoService } from '../services/consulta-credito.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Credito } from '../../models/credito.model';
+import { ConsultaCreditoService } from '../../services/consulta-credito.service';
 
 @Component({
   selector: 'app-consulta-credito',
