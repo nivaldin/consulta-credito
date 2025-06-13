@@ -7,7 +7,7 @@ Este é um projeto Angular para consulta de créditos fiscais, permitindo buscar
 - [Angular 19](https://angular.io/)
 - [Bootstrap 5](https://getbootstrap.com/)
 - [RxJS](https://rxjs.dev/)
-- TypeScript
+- [NodeJS 22.14.0](https://nodejs.org/)
 
 ## Funcionalidades
 
