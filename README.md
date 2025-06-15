@@ -1,82 +1,66 @@
-# Consulta Crédito
+# Consulta Crédito Angular
 
-Este é um projeto Angular para consulta de créditos fiscais, permitindo buscar créditos por número de NFSe ou número de crédito.
+Este projeto é uma aplicação Angular para consulta de créditos fiscais, permitindo buscar créditos por número de NFSe ou número de crédito.
 
 ## Tecnologias Utilizadas
 
-- [Angular 19](https://angular.io/)
-- [Bootstrap 5](https://getbootstrap.com/)
-- [RxJS](https://rxjs.dev/)
-- [NodeJS 22.14.0](https://nodejs.org/)
+- Angular
+- TypeScript
+- Bootstrap
+- NGINX (para produção via Docker)
 
-## Funcionalidades
-
-- Busca de créditos por número de NFSe
-- Busca de créditos por número de crédito
-- Exibição dos resultados em tabela
-- Integração com API REST (`hostApi` configurado em `src/environments/environment.ts`)
-
-## Estrutura do Projeto
-
-```
-src/
-  app/
-    consulta-credito/
-        models/
-            credito.model.ts
-        services/
-            consulta-credito.service.ts
-        views/
-            consultainicial/
-                consulta-credito.component.ts
-                consulta-credito.component.html
-                consulta-credito.component.scss
-    app.component.ts
-    app.config.ts
-    app.routes.ts
-  environments/
-    environment.ts
-    environment.development.ts
-  main.ts
-  styles.scss
-  index.html
-```
-
-## Como Executar
+## Como Executar Localmente
 
 1. Instale as dependências:
-
    ```sh
    npm install
    ```
 
 2. Inicie o servidor de desenvolvimento:
-
    ```sh
-   npm run start
+   npm start
    ```
+   Acesse em [http://localhost:4200](http://localhost:4200).
 
-3. Acesse o aplicativo em [http://localhost:4200/](http://localhost:4200/).
+## Como Executar com Docker
 
-## Testes
+1. Certifique-se de ter o Docker instalado.
+2. Construa a imagem:
+   ```sh
+   docker build -t consulta-credito-angular .
+   ```
+3. Rode o container:
+   ```sh
+   docker run -p 8080:80 consulta-credito-angular
+   ```
+   Acesse em [http://localhost:8080](http://localhost:8080).
 
-Para rodar os testes unitários:
+## Estrutura do Projeto
 
-```sh
-npm run test
+```
+consulta-credito-angular/
+│
+├── src/
+│   ├── app/
+│   └── environments/
+├── Dockerfile
+├── nginx.conf
+├── package.json
+├── README.md
+└── ...
 ```
 
-## Configuração de Ambiente
+## Configuração
 
-- O endpoint da API pode ser configurado em [`src/environments/environment.ts`](src/environments/environment.ts).
+- O endpoint da API pode ser ajustado em `src/environments/environment.ts`.
 
-## Scripts Disponíveis
+## Scripts Úteis
 
-- `npm run start` — Inicia o servidor de desenvolvimento
-- `npm run build` — Gera a build de produção
-- `npm run test` — Executa os testes unitários
+- `npm start` — inicia o servidor de desenvolvimento Angular
+- `npm run build` — gera a build de produção
+- `npm test` — executa os testes unitários
 
 ## Observações
 
 - O projeto utiliza Bootstrap via CDN para estilização.
-- O Angular CLI é utilizado para gerenciamento e build do projeto.
+- Para produção, os arquivos estáticos são servidos via NGINX em container Docker.
